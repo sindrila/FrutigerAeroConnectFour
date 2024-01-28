@@ -7,7 +7,5 @@ FrutigerAeroConnectFour is a Connect Four game implemented in Python with a rule
 
 
 
-## Layered Architecture
-
 <img width="1275" alt="Computer win" src="https://github.com/sindrila/FrutigerAeroConnectFour/assets/115073810/45037369-ce70-4374-a46e-26470071d436">
 
