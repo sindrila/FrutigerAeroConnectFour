@@ -18,7 +18,7 @@ screen_height = 720
 
 screen = pygame.display.set_mode([screen_width, screen_height])
 
-background = pygame.image.load("/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/start menu.png")
+background = pygame.image.load("UI/GUI/GUI data/start menu.png")
 background = pygame.transform.scale(background, (screen_width, screen_height))
 
 mixer.init()
@@ -33,18 +33,18 @@ def difficulty(human, computer, board):
         difficulty_mouse_pos = pygame.mouse.get_pos()
 
         difficulty_text = pygame.font.Font(
-            "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf", 100).render(
+            "UI/GUI/GUI data/Frutiger_bold.ttf", 100).render(
             "Choose Difficulty", True, ("white"))
         difficulty_rect = difficulty_text.get_rect(center=(screen_width / 2, screen_height / 2 - 150))
 
         dumb_button = Button(None, (screen_width / 2, screen_height / 2), "Dumb Computer",
                              pygame.font.Font(
-                                 "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                                 "UI/GUI/GUI data/Frutiger_bold.ttf",
                                  50), (208, 252, 229), "white")
 
         smart_button = Button(None, (screen_width / 2, screen_height / 2 + 100), "Smart Computer",
                               pygame.font.Font(
-                                  "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                                  "UI/GUI/GUI data/Frutiger_bold.ttf",
                                   50), (208, 252, 229), "white")
 
         screen.blit(difficulty_text, difficulty_rect)
@@ -76,11 +76,11 @@ def draw_disc(board, human, computer):
         for col in range(7):
             if board.board[row][col] == human:
                 image = pygame.image.load(
-                    "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/blue_bubble.png")
+                    "UI/GUI/GUI data/blue_bubble.png")
                 screen.blit(image, (x[6 - col], y[5 - row]))
             elif board.board[row][col] == computer:
                 image = pygame.image.load(
-                    "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/red_bubble.png")
+                    "UI/GUI/GUI data/red_bubble.png")
                 screen.blit(image, (x[6 - col], y[5 - row]))
 
 
@@ -88,7 +88,7 @@ def play(human, computer, board, computer_engine):
     pygame.display.set_caption("Play Connect Four")
     game_over = False
     win_text = None
-    mixer.music.load("/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/play_music.mp3")
+    mixer.music.load("UI/GUI/GUI data/play_music.mp3")
     mixer.music.set_volume(0.7)
     mixer.music.play(-1)
     while True:
@@ -96,11 +96,11 @@ def play(human, computer, board, computer_engine):
         play_mouse_pos = pygame.mouse.get_pos()
         screen.fill("black")
         play_background = pygame.image.load(
-            "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/play_background.png")
+            "UI/GUI/GUI data/play_background.png")
         screen.blit(play_background, (0, 0))
 
         exit_button = Button(None, (1185, 50), "Exit", pygame.font.Font(
-            "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf", 50),
+            "UI/GUI/GUI data/Frutiger_bold.ttf", 50),
                              (208, 252, 229), "white")
         exit_button.change_color(play_mouse_pos)
         exit_button.update(screen)
@@ -111,21 +111,21 @@ def play(human, computer, board, computer_engine):
             # display winning message up
             if win_text == "human":
                 human_win_text = pygame.font.Font(
-                    "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                    "UI/GUI/GUI data/Frutiger_bold.ttf",
                     50).render("Congratulations Human, You Won!", True, "white")
                 human_win_rect = human_win_text.get_rect(center=(screen_width / 2, screen_height / 2 - 300))
                 screen.blit(human_win_text, human_win_rect)
                 game_over = True
             elif win_text == "computer":
                 computer_win_text = pygame.font.Font(
-                    "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                    "UI/GUI/GUI data/Frutiger_bold.ttf",
                     50).render("Sorry Human, I Won.", True, "white")
                 computer_win_rect = computer_win_text.get_rect(center=(screen_width / 2, screen_height / 2 - 300))
                 screen.blit(computer_win_text, computer_win_rect)
                 game_over = True
 
         image = pygame.image.load(
-            "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/blue_bubble.png")
+            "UI/GUI/GUI data/blue_bubble.png")
 
         current_position = pygame.mouse.get_pos()
         if board.current_player == human and game_over == False and 240 <= current_position[0] <= 1025:
@@ -144,7 +144,6 @@ def play(human, computer, board, computer_engine):
                 pygame.display.update()
                 # pygame.time.delay(1000)
                 col = int(computer_engine.get_move()) - 1
-                print(col)
                 start = time()
                 while time() - start <= 0.5:
                     pass
@@ -194,7 +193,7 @@ def play(human, computer, board, computer_engine):
 
 
 def main_menu(human, computer, board):
-    mixer.music.load("/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/main_menu.mp3")
+    mixer.music.load("UI/GUI/GUI data/main_menu.mp3")
     mixer.music.set_volume(0.7)
     mixer.music.play(-1)
 
@@ -204,18 +203,18 @@ def main_menu(human, computer, board):
 
         menu_mouse_pos = pygame.mouse.get_pos()
         menu_text = pygame.font.Font(
-            "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf", 100).render(
+            "UI/GUI/GUI data/Frutiger_bold.ttf", 100).render(
             "Welcome to Connect 4!", True, ("white"))
         menu_rect = menu_text.get_rect(center=(screen_width / 2, screen_height / 2 - 150))
 
         play_button = Button(None, (screen_width / 2, screen_height / 2), "Play",
                              pygame.font.Font(
-                                 "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                                 "UI/GUI/GUI data/Frutiger_bold.ttf",
                                  50), (208, 252, 229), "white")
 
         quit_button = Button(None, (screen_width / 2, screen_height / 2 + 100), "Quit",
                              pygame.font.Font(
-                                 "/Users/Alex/Documents/GitHub/a9-915-Mindrila-Mihail/UI/GUI/GUI data/Frutiger_bold.ttf",
+                                 "UI/GUI/GUI data/Frutiger_bold.ttf",
                                  50), (208, 252, 229), "white")
 
         screen.blit(menu_text, menu_rect)
